@@ -1,0 +1,8 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div *ngFor="let student of students" class="bg-white p-4 rounded shadow">
+    <p><strong>Tên:</strong> {{ student.name }}</p>
+    <p><strong>Tuổi:</strong> {{ student.age }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Địa chỉ:</strong> {{ student.address }}</p>
+  </div>
+</div>
