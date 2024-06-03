@@ -1,0 +1,41 @@
+<div class="container mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-4">Thêm Sản Phẩm</h2>
+  <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700">Tên Sản Phẩm</label>
+      <input type="text" id="name" formControlName="name" class="w-full p-2 border border-gray-300 rounded">
+      <div *ngIf="productForm.get('name')?.touched && productForm.get('name')?.invalid" class="text-red-500 text-sm">
+        Tên sản phẩm không hợp lệ.
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="price" class="block text-gray-700">Giá</label>
+      <input type="number" id="price" formControlName="price" class="w-full p-2 border border-gray-300 rounded">
+      <div *ngIf="productForm.get('price')?.touched && productForm.get('price')?.invalid" class="text-red-500 text-sm">
+        Giá không hợp lệ.
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="category" class="block text-gray-700">Danh Mục</label>
+      <select id="category" formControlName="category" class="w-full p-2 border border-gray-300 rounded">
+        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      </select>
+      <div *ngIf="productForm.get('category')?.touched && productForm.get('category')?.invalid" class="text-red-500 text-sm">
+        Vui lòng chọn danh mục.
+      </div>
+    </div>
+    <button type="submit" class="bg-blue-500 text-white p-2 rounded">Thêm Sản Phẩm</button>
+  </form>
+
+  <h2 class="text-2xl font-bold my-4">Thêm Danh Mục</h2>
+  <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+    <div class="mb-4">
+      <label for="category-name" class="block text-gray-700">Tên Danh Mục</label>
+      <input type="text" id="category-name" formControlName="name" class="w-full p-2 border border-gray-300 rounded">
+      <div *ngIf="categoryForm.get('name')?.touched && categoryForm.get('name')?.invalid" class="text-red-500 text-sm">
+        Tên danh mục không hợp lệ.
+      </div>
+    </div>
+    <button type="submit" class="bg-blue-500 text-white p-2 rounded">Thêm Danh Mục</button>
+  </form>
+</div>
